@@ -3,6 +3,8 @@ package com.stars.movieexplorer.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.stars.movieexplorer.data.local.dao.MovieDao
+import com.stars.movieexplorer.data.local.entity.MovieDetailsEntity
+import com.stars.movieexplorer.data.local.entity.MovieEntity
 
 // data/local/MovieDatabase.kt
 @Database(

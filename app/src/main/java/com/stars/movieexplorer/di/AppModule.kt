@@ -1,5 +1,6 @@
 package com.stars.movieexplorer.di
 
+import com.stars.movieexplorer.domain.dispatchers.CoroutineDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

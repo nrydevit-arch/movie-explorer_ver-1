@@ -1,5 +1,7 @@
 package com.stars.movieexplorer.data.remote.dto
 
+import com.squareup.moshi.Json
+
 // data/remote/dto/MovieDto.kt
 data class MovieDto(
     val id: Int,
