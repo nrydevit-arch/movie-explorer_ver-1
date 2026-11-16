@@ -18,6 +18,19 @@ object MovieMapper {
         releaseDate = releaseDate
     )
 
+    fun Movie.toEntity() = MovieEntity(
+        id = id,
+        title = title,
+        overview = overview,
+        posterPath = posterPath,
+        voteAverage = voteAverage,
+        releaseDate = releaseDate,
+        isFavorite = isFavorite,
+        backdropPath = null,
+        runtime = null,
+        genres = ""
+    )
+
     fun MovieEntity.toDomain() = Movie(
         id = id,
         title = title,

@@ -1,9 +1,16 @@
 package com.stars.movieexplorer.data.repository
 
 import com.stars.movieexplorer.data.local.dao.MovieDao
+import com.stars.movieexplorer.data.mapper.MovieMapper.toDomain
+import com.stars.movieexplorer.data.mapper.MovieMapper.toEntity
 import com.stars.movieexplorer.data.remote.api.MovieApi
+import com.stars.movieexplorer.domain.dispatchers.CoroutineDispatchers
+import com.stars.movieexplorer.domain.model.Movie
+import com.stars.movieexplorer.domain.model.MovieDetails
 import com.stars.movieexplorer.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -46,7 +53,7 @@ class MovieRepositoryImpl @Inject constructor(
     override suspend fun refreshMovieDetails(id: Int) {
         withContext(dispatchers.io) {
             val dto = api.getMovieDetails(id)
-            val entity = dto.toEntity() // добавим маппер ниже
+            val entity = dto.toEntity()
             dao.insertMovieDetails(entity)
         }
     }
